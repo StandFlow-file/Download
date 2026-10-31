@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StandFlow</title>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html, body {
+    height: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow: hidden;
+  }
+
+  body {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 100vh;
+    padding: 48px 24px;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('zone9.png');
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+    filter: blur(6px) brightness(0.65) saturate(1.1);
+    transform: scale(1.06);
+    z-index: -2;
+  }
+
+  body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(10, 10, 15, 0.45) 0%, rgba(10, 10, 15, 0.55) 50%, rgba(10, 10, 15, 0.75) 100%);
+    z-index: -1;
+  }
+
+  .title {
+    font-size: clamp(2.4rem, 7vw, 4.5rem);
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 3px;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.6), 0 1px 2px rgba(0, 0, 0, 0.8);
+    margin-top: 10px;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+  }
+
+  .center-block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    width: 100%;
+  }
+
+  .download-btn {
+    padding: 24px 100px;
+    font-size: clamp(1.2rem, 3vw, 1.55rem);
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #ffffff;
+    background: linear-gradient(135deg, #e53935 0%, #c62828 100%);
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    box-shadow: 0 12px 32px rgba(198, 40, 40, 0.45), 0 4px 14px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+    text-transform: uppercase;
+    font-family: inherit;
+  }
+
+  .download-btn:hover {
+    transform: translateY(-5px);
+    background: linear-gradient(135deg, #ef5350 0%, #d32f2f 100%);
+    box-shadow: 0 18px 44px rgba(229, 57, 53, 0.55), 0 6px 18px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+
+  .download-btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 22px rgba(198, 40, 40, 0.5), 0 3px 10px rgba(0, 0, 0, 0.4);
+  }
+
+  .bottom-block {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding-bottom: 12px;
+  }
+
+  .tg-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 40px;
+    font-size: clamp(1rem, 2.4vw, 1.15rem);
+    font-weight: 500;
+    color: #ffffff;
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 14px;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    font-family: inherit;
+  }
+
+  .tg-btn:hover {
+    transform: translateY(-4px);
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 14px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  }
+
+  .tg-btn:active {
+    transform: translateY(-1px);
+  }
+
+  .tg-btn svg {
+    width: 24px;
+    height: 24px;
+    fill: #ffffff;
+    flex-shrink: 0;
+    opacity: 0.95;
+  }
+
+  @media (max-width: 600px) {
+    body {
+      padding: 32px 16px;
+    }
+    .download-btn {
+      padding: 20px 64px;
+    }
+    .tg-btn {
+      padding: 14px 28px;
+    }
+  }
+</style>
+</head>
+<body>
+
+  <h1 class="title">StandFlow</h1>
+
+  <div class="center-block">
+    <button class="download-btn" onclick="window.open('https://drive.google.com/file/d/1WWrXNUSsFQ-47l7pyrf-W04geSZCIait/view?usp=drivesdk', '_blank');">Скачать</button>
+  </div>
+
+  <div class="bottom-block">
+    <a class="tg-btn" href="https://t.me/StandFloww" target="_blank" rel="noopener noreferrer">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+      </svg>
+      Наш телеграм
+    </a>
+  </div>
+
+</body>
+</html>
